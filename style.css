@@ -1,0 +1,16 @@
+.card {
+  font-weight: bold;
+}
+.card-title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.todo {
+  font-size: 35px;
+}
+.error {
+  display: none;
+  color: red;
+}
+li {
+  color: black;
+}
