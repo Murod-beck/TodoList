@@ -1,3 +1,6 @@
+body {
+  background-color: rgb(230, 211, 248);
+}
 .card {
   font-weight: bold;
 }
@@ -13,4 +16,7 @@
 }
 li {
   color: black;
+}
+i {
+  cursor: pointer;
 }

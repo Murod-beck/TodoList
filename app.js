@@ -87,6 +87,7 @@ function deleteTodos(id) {
   showTodos();
 }
 
+//setCompleted
 function setCompleted(id) {
   const completedTodos = todos.map((item, i) => {
     if (id == i) {
@@ -99,3 +100,22 @@ function setCompleted(id) {
   setTodos();
   showTodos();
 }
+
+// editTodos
+function editTodos(id) {
+  open();
+}
+
+//modal
+const modals = document.querySelector(".modal");
+const modalClose = document.querySelector(".modal-close");
+const card = document.querySelector(".col");
+
+function open() {
+  modals.style.display = "block";
+  card.style.opacity = "0.5";
+}
+modalClose.addEventListener("click", () => {
+  modals.style.display = "none";
+  card.style.opacity = "1";
+});
