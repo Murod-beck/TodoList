@@ -21,6 +21,8 @@ setInterval(getDates, 1000);
 
 //Todo
 
+let editItemId;
+
 //mesageError
 const errors = document.querySelector(".error");
 function messageError() {
@@ -62,7 +64,7 @@ const formCreate = document.querySelector(".form-create");
 
 btnCreate.addEventListener("click", (e) => {
   e.preventDefault();
-  const todoText = formCreate["icon_prefix"].value.trim();
+  const todoText = formCreate["create-todo"].value.trim();
   formCreate.reset();
   if (todoText.length) {
     todos.push({
@@ -101,21 +103,31 @@ function setCompleted(id) {
   showTodos();
 }
 
-// editTodos
-function editTodos(id) {
-  open();
-}
-
 //modal
 const modals = document.querySelector(".modal");
-const modalClose = document.querySelector(".modal-close");
+const btnEdit = document.querySelector(".btn-edit");
 const card = document.querySelector(".col");
+
+//editForm
+const formEdit = document.querySelector(".form-edit");
+btnEdit.addEventListener("click", (e) => {
+  e.preventDefault();
+  const editText = formEdit["edit-todo"].value.trim();
+  formEdit.reset();
+  console.log(editText);
+});
+
+//editTodos
+function editTodos(id) {
+  open();
+  editItemId = id;
+}
 
 function open() {
   modals.style.display = "block";
   card.style.opacity = "0.5";
 }
-modalClose.addEventListener("click", () => {
+btnEdit.addEventListener("click", () => {
   modals.style.display = "none";
   card.style.opacity = "1";
 });
