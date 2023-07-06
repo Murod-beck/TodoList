@@ -14,9 +14,16 @@ body {
   display: none;
   color: red;
 }
+.errors {
+  display: none;
+  color: red;
+}
 li {
   color: black;
 }
 i {
   cursor: pointer;
+}
+.modal {
+  top: 10%;
 }

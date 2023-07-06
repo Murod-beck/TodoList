@@ -24,11 +24,10 @@ setInterval(getDates, 1000);
 let editItemId;
 
 //mesageError
-const errors = document.querySelector(".error");
-function messageError() {
-  errors.style.display = "block";
+function messageError(elems, message) {
+  document.querySelector(`${elems}`).style.display = message;
   setTimeout(() => {
-    errors.style.display = "none";
+    document.querySelector(`${elems}`).style.display = "none";
   }, 3000);
 }
 
@@ -75,7 +74,7 @@ btnCreate.addEventListener("click", (e) => {
     setTodos();
     showTodos();
   } else {
-    messageError();
+    messageError(".error", "block");
   }
 });
 
@@ -114,7 +113,19 @@ btnEdit.addEventListener("click", (e) => {
   e.preventDefault();
   const editText = formEdit["edit-todo"].value.trim();
   formEdit.reset();
-  console.log(editText);
+  if (editText.length) {
+    todos.splice(editItemId, 1, {
+      text: editText,
+      times: getDates(),
+      completed: false,
+    });
+    modals.style.display = "none";
+    card.style.opacity = "1";
+    setTodos();
+    showTodos();
+  } else {
+    messageError(".errors", "block");
+  }
 });
 
 //editTodos
@@ -127,7 +138,3 @@ function open() {
   modals.style.display = "block";
   card.style.opacity = "0.5";
 }
-btnEdit.addEventListener("click", () => {
-  modals.style.display = "none";
-  card.style.opacity = "1";
-});
